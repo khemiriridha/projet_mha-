@@ -1,0 +1,270 @@
+<!-- Modal1 -->
+ 
+ 
+<div class="wrap-modal1 js-modal1 p-t-60 p-b-20 show-modal1">
+    <div class="overlay-modal1 js-hide-modal1"></div>
+
+    <div class="container">
+        <div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+            <button id="close" class="how-pos3 hov3 trans-04 js-hide-modal1">
+                <img src="{{ asset('image/icons/icon-close.png') }}" alt="CLOSE">
+            </button>
+            <div class="row">
+                <div class="col-md-6 col-lg-7 p-b-30">
+                    <div class="p-l-25 p-r-30 p-lr-0-lg">
+                        <div class="wrap-slick3 flex-sb flex-w">
+                            <div class="wrap-slick3-dots"></div>
+                            <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+                            <div class="slick3 gallery-lb">
+							
+                                <div class="item-slick3" data-thumb="{{asset('uploads/documents' ~'/'~ src)}}">
+                                    <div class="wrap-pic-w pos-relative">
+                                        <img src="{{asset('uploads/documents' ~'/'~ src)}}" alt="IMG-PRODUCT">
+
+                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('uploads/documents' ~'/'~ src)}}">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-5 p-b-30">
+                    <div class="p-r-50 p-t-5 p-lr-0-lg">
+                        <h4 class="mtext-105 cl2 js-name-detail p-b-14">
+                           {{ produitname }}
+                        </h4>
+						<input type="hidden"  id="idproduct" value="{{ id }}">
+                        <input type="hidden"  id="produitname" value=" {{produitname }}">
+						<input type="hidden"  id="src" value="{{ src }}">
+						
+                        <span class="mtext-106 cl2">
+								{{ prx }} DT
+						</span>
+						
+                         <input type="hidden"  id="prx" value=" {{prx }}">
+                        <p class="stext-102 cl3 p-t-23">
+                          {{ description }}
+                        </p>
+						
+                       <input type="hidden"  id="description" value=" {{ description }}">
+					   <input type="hidden"  id="id_shop" value=" {{ id_shop }}">
+                        <!--  -->
+                        <div class="p-t-33">
+                            <div class="flex-w flex-r-m p-b-10">
+                                <div class="size-203 flex-c-m respon6">
+                                    Size
+                                </div>
+
+                                <div class="size-204 respon6-next">
+                                    <div class="rs1-select2 bor8 bg0">
+                                        <select class="js-select2" name="time">
+                                            <option>Choose an option</option>
+                                            <option>Size S</option>
+                                            <option>Size M</option>
+                                            <option>Size L</option>
+                                            <option>Size XL</option>
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-w flex-r-m p-b-10">
+                                <div class="size-203 flex-c-m respon6">
+                                    Color
+                                </div>
+
+                                <div class="size-204 respon6-next">
+                                    <div class="rs1-select2 bor8 bg0">
+                                        <select class="js-select2" name="time">
+                                            <option>Choose an option</option>
+                                            <option>Red</option>
+                                            <option>Blue</option>
+                                            <option>White</option>
+                                            <option>Grey</option>
+                                        </select>
+                                        <div class="dropDownSelect2"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-w flex-r-m p-b-10">
+                                <div class="size-204 flex-w flex-m respon6-next">
+                                    <div class="wrap-num-product flex-w m-r-20 m-tb-10">
+                                        <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                            <i class="fs-16 zmdi zmdi-minus"></i>
+                                        </div>
+
+                                        <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+                                        <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                            <i class="fs-16 zmdi zmdi-plus"></i>
+                                        </div>
+                                    </div>
+
+                                    <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+                                         Ajouter au panier  
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--  -->
+                        <div class="flex-w flex-m p-l-100 p-t-40 respon7">
+                            <div class="flex-m bor9 p-r-10 m-r-11">
+                                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+                                    <i class="zmdi zmdi-favorite"></i>
+                                </a>
+                            </div>
+
+                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+
+                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+
+                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ asset('tshop/vendor/select2/select2.min.js') }}"></script>
+<script>
+    $(".js-select2").each(function(){
+        $(this).select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $(this).next('.dropDownSelect2')
+        });
+    })
+</script>
+<!--===============================================================================================-->
+ 
+ 
+<!--===============================================================================================-->
+<script src="{{ asset('tshop/vendor/slick/slick.min.js') }}"></script>
+<script src="{{ asset('tshop/js/slick-custom.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('tshop/vendor/parallax100/parallax100.js') }}"></script>
+<script>
+    $('.parallax100').parallax100();
+</script>
+<!--===============================================================================================-->
+<script src="{{ asset('tshop/vendor/MagnificPopup/jquery.magnific-popup.min.js') }}"></script>
+<script>
+    $('.gallery-lb').each(function() { // the containers for all your galleries
+        $(this).magnificPopup({
+            delegate: 'a', // the selector for gallery item
+            type: 'image',
+            gallery: {
+                enabled:true
+            },
+            mainClass: 'mfp-fade'
+        });
+    });
+</script>
+<!--===============================================================================================-->
+<script src="{{ asset('tshop/vendor/isotope/isotope.pkgd.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('tshop/vendor/sweetalert/sweetalert.min.js') }}"></script>
+ 
+<!--===============================================================================================-->
+<script src="{{ asset('tshop/vendor/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+<script>
+    $('.js-pscroll').each(function(){
+        $(this).css('position','relative');
+        $(this).css('overflow','hidden');
+        var ps = new PerfectScrollbar(this, {
+            wheelSpeed: 1,
+            scrollingThreshold: 1000,
+            wheelPropagation: false,
+        });
+
+        $(window).on('resize', function(){
+            ps.update();
+        })
+    });
+</script>
+<script src="{{asset('template/js/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="{{asset('template/js/bootstrap.min.js')}}"></script>
+
+<script src="{{asset('template/js/mail-script.js')}}"></script>
+<script src="{{asset('template/js/main.js')}}"></script>
+
+<!--===============================================================================================-->
+<script src="{{ asset('tshop/js/main.js') }}"></script>
+
+<script>
+    $( document ).ready(function() {
+        $('select[data-select="true"]').select2();
+    });
+</script>
+<script>
+
+$("#close").click(function(){
+   $('.js-modal1').removeClass('show-modal1');
+});
+$(".js-addcart-detail").click(function(){
+    var value = $(".js-show-cart").data("notify");
+	var nbpanier = localStorage.getItem('nbpanier');
+	//alert(nbpanier);
+     if(nbpanier == 'undefined' || nbpanier == '0'){ 
+	    localStorage.setItem('nbpanier',1);
+		$('.js-show-cart').attr('data-notify', 1);
+		//alert('init');
+		
+		 
+	  }else {
+	    //var nbpanier = localStorage.getItem('nbpanier');
+		localStorage.setItem('nbpanier',++nbpanier);
+		var nbpanier = localStorage.getItem('nbpanier');
+		$('.js-show-cart').attr('data-notify', nbpanier);
+		//alert('update');
+	  }
+	 
+	 var id_product = $("#idproduct").val();
+	 var produit_name = $("#produitname").val();
+	 var prx = $("#prx").val();
+	 var description = $("#description").val();
+	 var nb_produit = $(".num-product").val();
+	 var image = $("#src").val();
+	 var id_shop = $("#id_shop").val();
+	 //alert(id_product+'--'+produit_name+'--'+prx+'--'+description+'--'+nb_produit+'--'+image);
+	  $.ajax({
+				url : "{{path('set_session_shop')}}",
+				type : 'POST',
+				dataType : 'json',
+				data : {src:image,produit_name:produit_name,prx:prx,description:description,id_product:id_product,nb_produit:nb_produit,id_shop:id_shop},
+				beforeSend: function() {
+				     
+ 
+				},
+				success : function(response){
+				       //alert(response.size);
+					   $('.js-show-cart').attr('data-notify', response.size);
+					    
+					   window.location.href = "http://localhost/PFE5/web/app_dev.php/boutique/"+id_shop;
+				},
+				error : function(e){
+				      
+				}
+			});
+ 
+	///var i = 0;
+	//$('.js-show-cart').attr('data-notify', ++i);
+	
+});
+ 
+  
+</script>

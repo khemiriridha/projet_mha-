@@ -1,0 +1,48 @@
+
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+    <div class="form-group">
+    <div class="form-group">
+    <h1 align="center">Liste des shop</h1><br>
+
+    <center>
+
+        <table  class="table" border="0" width="500">
+            <tr>
+
+                <th>actions</th>
+                <th>nom</th>
+                <th>description</th>
+                <th>Activite</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>logo</th>
+                <th> </th>
+                <th> </th>
+
+            </tr>
+            {% for s in shop %}
+                <tr>
+                {% if s.statut == false %}
+                    <td><a href="{{ path('activerShop', {'id':s.id}) }}" class="button edit">Activer</td>
+
+                {% else %}
+                    <td><a href="{{ path('desactiverShop', {'id':s.id}) }}" class="button edit">Desactiver</td>
+                {% endif %}
+
+                    <td>{{ s.description }}</td>
+                    <td>{{ s.Activite }}</td>
+                    <td>{{ s.Telephone }}</td>
+                    <td>{{ s.Adresse }}</td>
+                    <td><img src="{{ asset(images_directory ~'/'~s.logo ) }}" width="30"></td>
+
+
+                </tr>
+            {% endfor %}
+
+        </table>
+    </center>
+{% endblock %}

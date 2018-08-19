@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+{% block slider %}  {% endblock %}
+{%  block body %}
+    <div class="container">
+        {%  block title %}<h1> votre profil:</h1> <br/>{%  endblock %}
+
+    <div class="row">
+            <div class="col-sm_4">
+                <img src="{{ asset('image/profil.png') }}"  width="150" height="150"/>
+            </div>
+            <div class="col-sm-6">
+                <h5>votre Nom:</h5>{{ app.User.username }}
+                <h5>votre e-mail:</h5>{{ app.User.email }}
+                {% for role in app.User.roles %}
+                <h5>votre role:</h5> {{ role }}
+                {% endfor %}
+            </div>
+            <div class="col-sm-4">
+
+                 {% if(app.user.shop) %}
+                            <a href="{{ path('modifiershop', {'id':app.User.shop.id}) }}" class="text-uppercase">Modifier shop</a>
+                                   {% else %}
+                            <a href="/PFE5/web/app_dev.php/new_shop" class="text-uppercase">creer shop</a>
+                 {% endif %}
+            </div>
+
+    {% endblock %}

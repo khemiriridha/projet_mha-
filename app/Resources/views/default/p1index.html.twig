@@ -1,0 +1,42 @@
+
+{% extends 'base.html.twig' %}
+
+{%  block body %}
+    <div class="" style="margin-top: 115px; margin-bottom: 25px;">
+        <div class="row isotope-grid">
+           {% for catt1 in cattt %}
+                <ul>
+                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <div class="block2-pic hov-img0">
+                                <div class="block2-pic hov-img0">
+                                    <img src="{{asset(images_directory ~'/'~ catt1.prod_tof)}}" alt="IMG-PRODUCT" >
+                                </div>
+                                <div class="block2-txt flex-w flex-t p-t-14">
+                                    <div class="block2-txt-child1 flex-col-l ">
+                                        <h4>{{ catt1.cat_nom }}</h4>
+                                        <h4>{{ catt1.cat_id }}</h4>
+
+
+                                        <li>NOM:{{ catt1.prod_nom }}</li>
+                                        <li>{{ catt1.prod_prix }}Dt</li>
+                                    </div>
+                                    <div class="block2-txt-child2 flex-r p-t-3">
+                                        <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                            <img class="icon-heart1 dis-block trans-04" src="http://localhost:800/marwa/web/tshop/images/icons/icon-heart-01.png" alt="ICON">
+                                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="http://localhost:800/marwa/web/tshop/images/icons/icon-heart-02.png" alt="ICON">
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </ul>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

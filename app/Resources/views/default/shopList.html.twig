@@ -1,0 +1,41 @@
+
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+    <div class="form-group">
+    <div class="form-group">
+    <h1 align="center">Liste des shop</h1><br>
+
+    <center>
+
+        <table  class="table" border="0" width="500">
+            <tr>
+
+                <th>nom</th>
+                <th>description</th>
+                <th>Activite</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>logo</th>
+                <th> </th>
+                <th> </th>
+
+            </tr>
+            {% for s in shop %}
+                <tr>
+                    <td><a href="{{ path('show_page_shop', { 'id': s.id }) }}">{{ s.nom }}</td>
+                    <td>{{ s.description }}</td>
+                    <td>{{ s.Activite }}</td>
+                    <td>{{ s.Telephone }}</td>
+                    <td>{{ s.Adresse }}</td>
+                    <td><img src="{{ asset(images_directory ~'/'~s.logo ) }}" width="30"></td>
+
+
+                </tr>
+            {% endfor %}
+
+        </table>
+    </center>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+<div class="form-group">
+    <div class="form-group">
+    
+        <h1 align="center">Liste des Produits</h1><br><br>
+
+    <div >
+    <center><a type="button" href="{{ path('newProduit') }}">ajouter produit</a></center><br>
+    </div>
+            <center>
+                <table class="table" border="0" width="500">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                        <th>image</th>
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+        {% for produit in produit %}
+
+                    <tr>
+                        <td><b>{{ produit.nom }}</b></td>
+                        <td>{{ produit.description }}</td>
+                        <td>{{ produit.prix }} Dinars</td>
+                        <td><img src="{{ asset(images_directory ~'/'~produit.file ) }}" width="30"></td>
+                        <td><a href="{{ path('modifierproduit', {'id':produit.id}) }}" class="button edit">Modifier</a></td>
+                        <td><a href="{{ path('deleteproduit', {'id':produit.id}) }}" class="button edit">Supprimer</a></td>
+
+                        <td></td>
+                    </tr>
+
+        {% endfor %}
+                </table>
+            </center>
+        
+{% endblock %}

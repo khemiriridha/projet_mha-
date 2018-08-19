@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+    <div class="form-signin">
+            <center> {% block title %} new Attribute{% endblock %} </center>
+    </div>
+    {{ form_start(form, {'method': 'post','attr': {'novalidate': 'novalidate'}}) }}
+        <fieldset>                        
+            <div class="form-group">
+                {{ form_label(form.nom) }}
+                {{ form_widget(form.nom,{'attr':{'class':'form-control'}}) }}
+            </div>
+        </fieldset>
+        {{ form_end(form) }}
+{% endblock %}

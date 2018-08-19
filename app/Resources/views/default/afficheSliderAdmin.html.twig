@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+<div class="form-group">
+    <div class="form-group">
+    
+        <h1 align="center">Liste des Sliders</h1><br><br>
+
+    <div >
+    <center><a type="button" href="{{ path('newSlider') }}">ajouter Slider</a></center><br>
+    </div>
+            <center>
+                <table class="table" border="0" width="500">
+                    <tr>
+                        <th>id</th>
+                        <th>imaslider</th>
+
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+        {% for slider in slider %}
+
+                    <tr>
+                        <td><b>{{ slider.id }}</b></td>
+                        <td>{{ slider.imaslider }}</td>
+                        <td><img src="{{ asset(images_directory ~'/'~ slider.imaslider ) }}" width="30"></td>
+                        <td><a href="{{ path('deleteslider', {'id':slider.id}) }}" class="button edit">Supprimer</a></td>
+
+                        <td></td>
+                    </tr>
+
+        {% endfor %}
+                </table>
+            </center>
+        
+{% endblock %}

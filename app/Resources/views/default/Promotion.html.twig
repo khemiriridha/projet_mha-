@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <center> {% block title %} Promotion{% endblock %} </center><br><br>
+            {{ form_start(form, {'method': 'post','attr': {'novalidate': 'novalidate'}}) }}
+            <fieldset>
+                <div class="form-group col-md-6" >
+                    {{ form_label(form.dateDebut) }}
+                    {{ form_widget(form.dateDebut) }}
+                </div>
+                <div class="form-group col-md-6" >
+                    {{ form_label(form.dateFin) }}
+                    {{ form_widget(form.dateFin) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.nouveauPrix) }}
+                    {{ form_widget(form.nouveauPrix,{'attr':{'class':'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.pourcentage) }}
+                    {{ form_widget(form.pourcentage,{'attr':{'class':'form-control'}}) }}
+                </div>
+            </fieldset>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+    <div class="form-signin">
+            <center> {% block title %} new produit{% endblock %} </center>
+    </div>
+    {{ form_start(form, {'method': 'post','attr': {'novalidate': 'novalidate'}}) }}
+        <fieldset>                        
+            <div class="form-group">
+                {{ form_label(form.nom) }}
+                {{ form_widget(form.nom,{'attr':{'class':'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.description) }}
+                {{ form_widget(form.description,{'attr':{'class':'form-control'}}) }}
+            </div>   
+            <div class="form-group">
+                {{ form_label(form.prix) }}
+                {{ form_widget(form.prix,{'attr':{'class':'form-control'}}) }}
+            </div>   
+            <div class="form-group">
+                {{ form_label(form.file) }}
+                {{ form_widget(form.file,{'attr':{'class':'form-control'}}) }}
+            </div>   
+            <div class="form-group">
+                {{ form_label(form.categorie) }}
+                {{ form_widget(form.categorie,{'attr':{'class':'form-control'}}) }}
+            </div>
+            <center><a type="button" href="{{ path('newcategorie' ) }}">ajouter categorie</a></center><br>
+
+            <div class="form-group">
+                {{ form_label(form.produitAttribute) }}
+                    <div id="produitAttribute-fields-list"
+                    data-prototype="{{ form_widget(form.produitAttribute.vars.prototype)|e }}"
+                    data-widget-tags="{{ '<div></div>'|e }}">
+                    {% for produitAttribute in form.produitAttribute %}
+                        <div col-md-12>
+                            {{ form_errors(produitAttribute) }}
+                            {{ form_widget(produitAttribute) }}
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div >
+
+                    </div>
+                    <a href="#"
+                        class="add-another-collection-widget"
+                        data-list="#produitAttribute-fields-list">Ajouter un nouveau champ </a>
+                <center><a type="button" href="{{ path('newAttribute' ) }}">ajouter attribute</a></center><br>
+
+            </div>
+
+
+
+        </fieldset>
+        {{ form_end(form) }}
+    <script type="text/javascript">
+        $(document).ready(function () {
+    $('.add-another-collection-widget').click(function (e) {
+        e.preventDefault();
+        var list = $($(this).attr('data-list'));
+        // Try to find the counter of the list
+        var counter = list.data('widget-counter') | list.children().length;
+        // If the counter does not exist, use the length of the list
+        if (!counter) { counter = list.children().length; }
+
+        // grab the prototype template
+        var newWidget = list.attr('data-prototype');
+        // replace the "__name__" used in the id and name of the prototype
+        // with a number that's unique to your emails
+        // end name attribute looks like name="contact[emails][2]"
+        newWidget = newWidget.replace(/__name__/g, counter);
+
+        var idNewWidget="#produit_produitAttribute"+counter;
+        // Increase the counter
+        counter++;
+        // And store it, the length cannot be used if deleting widgets is allowed
+        list.data(' widget-counter', counter);
+
+        // create a new list element and add it to the list
+        var newElem = $(list.attr('data-widget-tags')).html(newWidget);
+        newElem.appendTo(list);
+        $(''+idNewWidget).addClass('row');
+    });
+});
+    </script>
+    
+{% endblock %}

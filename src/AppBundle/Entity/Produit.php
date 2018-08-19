@@ -1,0 +1,289 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\Attribute;
+use AppBundle\Entity\Produit_Attribute;
+use AppBundle\Entity\Categorie;
+use AppBundle\Entity\Shop;
+
+
+
+/**
+ * Produit
+ *
+ * @ORM\Table(name="produit")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProduitRepository")
+ */
+class Produit
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prix", type="decimal", precision=10, scale=3)
+     */
+    
+    private $prix;
+
+     /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "image/jpeg","image/png" })
+     */
+    private $file;
+
+     /**
+     * @ORM\ManyToOne(targetEntity="Shop", inversedBy="produit")
+     * @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
+    */
+    private $shop;
+    /**
+     * @ORM\ManyToMany(targetEntity="Categorie", cascade={"persist"}, inversedBy="Produit")
+     * @ORM\JoinTable(name="produit_categorie")
+     */
+    private $categorie;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Produit_Attribute", mappedBy="produit", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="Produit_Attribute_id", referencedColumnName="id")
+     */
+    private $produitAttribute;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Produit
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+/**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Produit
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+
+    /**
+     * Set prix
+     *
+     * @param string $prix
+     *
+     * @return Produit
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return string
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+    
+    /**
+     * get file
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * set file
+     */
+
+    public function setFile($file)
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+   
+
+    /**
+     * Set shop
+     *
+     * @param \AppBundle\Entity\Shop $shop
+     *
+     * @return Produit
+     */
+    public function setShop(\AppBundle\Entity\Shop $shop)
+    {
+
+        $this->shop = $shop;
+
+        return $this;
+    }
+
+    /**
+     * Get shop
+     *
+     * @return \AppBundle\Entity\Shop
+     */
+    public function getShop()
+    {
+        return $this->shop;
+    }
+
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categorie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add categorie
+     *
+     * @param \AppBundle\Entity\Categorie $categorie
+     *
+     * @return Produit
+     */
+    public function addCategorie(\AppBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie[] = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Remove categorie
+     *
+     * @param \AppBundle\Entity\Categorie $categorie
+     */
+    public function removeCategorie(\AppBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    
+
+    
+
+    /**
+     * Add produitAttribute
+     *
+     * @param \AppBundle\Entity\Produit_Attribute $produitAttribute
+     *
+     * @return Produit
+     */
+    public function addProduitAttribute(\AppBundle\Entity\Produit_Attribute $produitAttribute)
+    {
+        $produitAttribute->setProduit($this);
+        $this->produitAttribute[] = $produitAttribute;
+
+        return $this;
+    }
+
+    /**
+     * Remove produitAttribute
+     *
+     * @param \AppBundle\Entity\Produit_Attribute $produitAttribute
+     */
+    public function removeProduitAttribute(\AppBundle\Entity\Produit_Attribute $produitAttribute)
+    {
+        $this->produitAttribute->removeElement($produitAttribute);
+    }
+
+    /**
+     * Get produitAttribute
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProduitAttribute()
+    {
+        return $this->produitAttribute;
+    }
+}

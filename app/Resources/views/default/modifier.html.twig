@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+<div class="row" style="margin-top: 70px">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+        <center> {% block title %}modifier shop{% endblock %} </center>
+
+    {{ form_start(form, {'method': 'post','attr': {'novalidate': 'novalidate'}}) }}
+    <fieldset>
+        <div class="form-group">
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom,{'attr':{'class':'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description,{'attr':{'class':'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.Activite) }}
+            {{ form_widget(form.Activite,{'attr':{'class':'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.Telephone) }}
+            {{ form_widget(form.Telephone,{'attr':{'class':'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.Adresse) }}
+            {{ form_widget(form.Adresse,{'attr':{'class':'form-control'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.logo) }}
+            {{ form_widget(form.logo,{'attr':{'class':'form-control'}}) }}
+        </div>
+
+    </fieldset>
+    {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

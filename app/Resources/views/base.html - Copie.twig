@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    {% block stylesheet %}
+
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    {% endblock %}
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{{ asset('template/img/fav.ico') }}">
+    <link rel="icon" href="{{asset('image/favicon.ico')}}">
+
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Author Meta -->
+    <meta name="author" content="codethemes">
+
+    <!-- Meta Description -->
+    <meta name="description" content="">
+
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>ArchMail - Marketing Responsive HTML5 Template</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+    <!--CSS============================================= -->
+    <link rel="stylesheet" href="{{ asset('template/css/linearicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/bootstrap.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+    <link href ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('template/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/css/custom.css') }}">
+    {% block css %}  {% endblock %}
+
+    <script src="{{asset('template/js/jquery-2.2.4.min.js')}}"></script>
+</head>
+<body>
+<!-- get logo_name from database theme
+    if(logo_name != '')
+    $logo = logo_name
+    else
+    $logo = logo.png
+-->
+<!-- start Header Area -->
+<header id="header">
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="index.html">
+
+                    {% if app.user != null %}
+                        {% if app.user.shop != null %}
+                            <img style="width: 25%;" src="{{asset(images_directory ~'/'~ app.user.shop.logo)}}">
+                        {% else %}
+                            <img style="width: 25%;" src="{{asset('image/profil.png')}}">
+                        {% endif %}
+                    {% else %}
+                        <img style="width: 25%;" src="{{asset('image/profil.png')}}">
+                    {% endif %}
+                </a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="menu-active">Home</a></li>
+                    <li><a href="about.html" >About Us</a></li>
+                    <li class="menu-has-children"><a href="">Pages</a>
+                        <ul>
+                            <li><a href="privacy.html">Privacy</a></li>
+                            <li><a href="terms.html">Terms</a></li>
+                            <li><a href="elements.html">Elements</a></li>
+                            <li class="menu-has-children"><a href="">Level 2</a>
+                                <ul>
+                                    <li><a href="#">Item One</a></li>
+                                    <li><a href="#">Item Two</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-has-children"><a href="">Blog</a>
+                        <ul>
+                            <li><a href="blog-home.html">Blog Home</a></li>
+                            <li><a href="blog-single.html">Blog Single</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    {%  if(app.user) %}
+                        <li class="signup-btn"><a href="{{ path('fos_user_security_logout') }}" class="text-uppercase">Déconnecter</a></li>
+                    {% else %}
+                        <li class="signup-btn"><a href="{{ path('fos_user_security_login') }}" class="text-uppercase">connecter</a></li>
+                        <li class="signup-btn"><a href="{{ path('fos_user_registration_register') }}" class="text-uppercase">inscrivez vous</a></li>
+                    {% endif %}
+
+
+
+                </ul>
+            </nav>
+            <!-- #nav-menu-container -->
+        </div>
+    </div>
+</header>
+{% block slider %}
+
+    <!--slider -->
+{% endblock %}
+
+<section class="brands-area section-gap">
+    <div class="container">
+        {% block body %} {% endblock %}
+    </div>
+</section>
+
+<footer class="footer-area">
+    <div class="pattern-right" src="/PFE5/web/template/img/pattern-right.png" alt=""></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>About Us</h4>
+                    <p>
+                        People like a “special” price or exclusive offer directed only to them. Most Industrial and Manufacturing equipment buyers are seeking to be told that they are special. Through a great deal of trial and error writing.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-2  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>Feature</h4>
+                    <ul class="menu-list">
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Brand Assets</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>Resources</h4>
+                    <ul class="menu-list">
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Experts</a></li>
+                        <li><a href="#">Agencies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-5  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h4>Newsletter</h4>
+                    <p>You can trust us. we only send  offers, not a single spam.</p>
+                    <div class="d-flex flex-row" id="mc_embed_signup">
+                        <form class="navbar-form" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
+                            <div class="input-group add-on align-items-center d-flex">
+                                <input class="form-control" name="EMAIL" placeholder="Your email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
+                                <div style="position: absolute; left: -5000px;">
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                </div>
+                                <div class="input-group-btn">
+                                    <button class="genric-btn"><span class="lnr lnr-arrow-right"></span></button>
+                                </div>
+                            </div>
+                            <div class="info mt-20"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom row align-items-center">
+            <p class="footer-text m-0 col-lg-6 col-md-12">Copyright © 2018 All rights reserved to <a href="https://themeforest.net/user/codethemes/portfolio">Code Themes</a></p>
+            <div class="footer-social col-lg-6 col-md-12">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End footer Area -->
+
+<script src="{{asset('template/js/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="{{asset('template/js/bootstrap.min.js')}}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src="{{asset('template/js/superfish.min.js')}}"></script>
+<script src="{{asset('template/js/jquery.ajaxchimp.min.js')}}"></script>
+<script src="{{asset('template/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('template/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('template/js/jquery.tabs.min.js')}}"></script>
+<script src="{{asset('template/js/mn-accordion.js')}}"></script>
+<script src="{{asset('template/js/jquery.nice-select.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+<script src="{{asset('template/js/mail-script.js')}}"></script>
+<script src="{{asset('template/js/main.js')}}"></script>
+<script>
+    /* $(document).ready(function() {
+         $('select[data-select="true"]').select2();
+         $("#produit_attribute").on('change',function(){
+             var val = this.value;
+             if(val == 1) {
+                 $('.couleur').removeAttr('hidden');
+             } else
+             if(val == 2) {
+                 $('.volume').removeAttr('hidden');
+
+             }
+         });
+     });*/
+</script>
+{% block javascript %} {% endblock %}
+</body>
+</html>
+

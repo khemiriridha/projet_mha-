@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block header %}   {% endblock %}
+
+{% block slider %}  {% endblock %}
+{% block body %}
+<div class="form-group">
+    <div class="form-group">
+<h1 align="center">Liste des Categories</h1><br>
+    <div >
+            <center><a type="button" href="{{ path('newcategorie' ) }}">ajouter categorie</a></center><br>
+    </div>
+<center>
+
+<table  class="table" border="0" width="500">
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th> </th>
+        <th> </th>
+
+    </tr>
+    {% for c in categorie %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.nom }}</td>
+            <td><a href="{{ path('deletecategorie', {'id':c.id}) }}" class="button edit">Supprimer</a></td>
+        </tr>
+    {% endfor %}
+
+</table>
+</center>
+{% endblock %}
